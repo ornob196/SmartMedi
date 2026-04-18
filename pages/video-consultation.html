@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Video consultation with SMARTMEDI doctors. Connect with healthcare professionals from home via video call.">
+    <meta name="keywords" content="video consultation, online doctor, telemedicine, virtual visit, remote healthcare">
+    <title>Video Consultation - SMARTMEDI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        /* Video Consultation Page Styles */
+        .video-consultation-header {
+            background: linear-gradient(135deg, #17A2B8 0%, #20c997 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .video-consultation-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .video-consultation-header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .consultation-container {
+            padding: 60px 20px;
+        }
+
+        /* Feature Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #17A2B8 0%, #20c997 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin: 0 auto 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Main Consultation Section */
+        .consultation-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            align-items: start;
+        }
+
+        .consultation-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .consultation-content p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+
+        .benefits-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .benefits-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #20c997;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .consultation-video-demo {
+            background: linear-gradient(135deg, #17A2B8 0%, #20c997 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, rgba(23, 162, 184, 0.8), rgba(32, 201, 151, 0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: moveGrid 10s linear infinite;
+        }
+
+        @keyframes moveGrid {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(20px, 20px); }
+        }
+
+        .play-button {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .play-button i {
+            color: #17A2B8;
+            font-size: 2rem;
+            margin-left: 5px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+            50% { box-shadow: 0 0 0 20px rgba(255, 255, 255, 0); }
+        }
+
+        /* Booking Section */
+        .consultation-booking {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 60px;
+        }
+
+        .booking-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+        }
+
+        .booking-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .booking-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .booking-card:hover {
+            border-color: #17A2B8;
+            box-shadow: 0 4px 16px rgba(23, 162, 184, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .booking-card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .booking-card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #17A2B8 0%, #20c997 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .booking-card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .booking-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .booking-duration {
+            background: #e8f5e9;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+
+        .booking-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #17A2B8;
+            margin-bottom: 15px;
+        }
+
+        .btn-book-now {
+            background: linear-gradient(135deg, #17A2B8 0%, #20c997 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .btn-book-now:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(23, 162, 184, 0.3);
+        }
+
+        /* How It Works */
+        .how-it-works-section {
+            background: white;
+            padding: 60px 20px;
+            margin-bottom: 60px;
+        }
+
+        .how-it-works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .how-it-works-card {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #17A2B8 0%, #20c997 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .how-it-works-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .how-it-works-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: #f8f9fa;
+            padding: 60px 20px;
+            margin-bottom: 60px;
+        }
+
+        .faq-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .faq-question:hover {
+            background: #f8f9fa;
+            color: #17A2B8;
+        }
+
+        .faq-question.active {
+            background: linear-gradient(135deg, #17A2B8 0%, #20c997 100%);
+            color: white;
+        }
+
+        .faq-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-question.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: #f8f9fa;
+        }
+
+        .faq-answer.show {
+            max-height: 300px;
+            padding: 20px;
+        }
+
+        .faq-answer p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .consultation-cta {
+            background: linear-gradient(135deg, #17A2B8 0%, #20c997 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 60px;
+        }
+
+        .consultation-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .consultation-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-start-consultation {
+            background: white;
+            color: #17A2B8;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn-start-consultation:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-learn-more {
+            background: transparent;
+            color: white;
+            padding: 14px 32px;
+            border: 2px solid white;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn-learn-more:hover {
+            background: white;
+            color: #17A2B8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .video-consultation-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .consultation-main {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .how-it-works-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .consultation-cta h2 {
+                font-size: 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-start-consultation,
+            .btn-learn-more {
+                width: 100%;
+            }
+
+            .consultation-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-brand">
+                    <i class="fas fa-heartbeat"></i>
+                    <span class="brand-name">SMARTMEDI</span>
+                </div>
+                
+                <button class="navbar-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!--<ul class="navbar-menu" id="navMenu">
+                    <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="../index.html#services" class="nav-link">Services</a></li>
+                    <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul> 
+
+                <div class="navbar-actions">
+                    <a href="tel:+18001234567" class="emergency-btn" title="Emergency Hotline">
+                        <i class="fas fa-phone"></i>
+                        <span class="hidden-mobile">+8801780358209</span>
+                    </a>
+                    <a href="login.html">
+                        <button class="btn btn-primary-sm" id="loginBtn">Login</button>
+                    </a>
+                </div> -->
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Page Header -->
+        <section class="video-consultation-header">
+            <div class="container">
+                <h1>Video Consultation</h1>
+                <p>Connect with doctors from the comfort of your home via secure video call</p>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="consultation-container">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>Easy Connection</h3>
+                        <p>One-click video call with verified doctors. No downloads required, works on all devices.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Flexible Timing</h3>
+                        <p>Book consultations at your convenience. Choose from available time slots that suit you.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>100% Secure</h3>
+                        <p>End-to-end encrypted video calls. Your privacy and data are completely protected.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-prescription-bottle"></i>
+                        </div>
+                        <h3>Digital Records</h3>
+                        <p>Get e-prescriptions and medical records instantly. Access them anytime, anywhere.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Insurance Ready</h3>
+                        <p>All consultations are covered by major insurance providers. Easy claim processing.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>24/7 Support</h3>
+                        <p>Round-the-clock customer support. Get help anytime you need it.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Consultation Section -->
+        <section class="consultation-container">
+            <div class="container">
+                <div class="consultation-main">
+                    <div class="consultation-content">
+                        <h2>Why Choose Video Consultation?</h2>
+                        <p>Skip the waiting room and consult with experienced doctors from your home. Our video consultation service brings quality healthcare closer to you with expert medical professionals ready to help.</p>
+                        
+                        <ul class="benefits-list">
+                            <li>Consult top-rated doctors anytime, anywhere</li>
+                            <li>No travel time or waiting in queues</li>
+                            <li>Complete privacy and confidentiality</li>
+                            <li>Faster diagnosis and treatment plans</li>
+                            <li>Affordable consultation fees</li>
+                            <li>Instant e-prescriptions and follow-ups</li>
+                        </ul>
+
+                        <a href="appointments.html" class="btn btn-primary btn-lg" style="margin-top: 20px;">
+                            <i class="fas fa-calendar-check"></i>
+                            Book a Video Consultation
+                        </a>
+                    </div>
+
+                    <div class="consultation-video-demo">
+                        <div class="video-placeholder">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Options -->
+        <section class="consultation-booking">
+            <div class="container">
+                <h2 class="booking-title">Choose Your Consultation Plan</h2>
+                
+                <div class="booking-grid">
+                    <div class="booking-card">
+                        <div class="booking-card-header">
+                            <div class="booking-card-icon">
+                                <i class="fas fa-stethoscope"></i>
+                            </div>
+                            <div class="booking-card-title">General Consultation</div>
+                        </div>
+                        <p>Perfect for common health concerns, initial checkups, and general advice.</p>
+                        <div class="booking-duration">
+                            <i class="fas fa-hourglass-half"></i> 15 minutes
+                        </div>
+                        <div class="booking-price">৳300</div>
+                        <button class="btn-book-now" onclick="redirectToBooking('general')">Book Now</button>
+                    </div>
+
+                    <div class="booking-card">
+                        <div class="booking-card-header">
+                            <div class="booking-card-icon">
+                                <i class="fas fa-microscope"></i>
+                            </div>
+                            <div class="booking-card-title">Specialist Consultation</div>
+                        </div>
+                        <p>Consult specialized doctors for specific medical conditions and treatments.</p>
+                        <div class="booking-duration">
+                            <i class="fas fa-hourglass-half"></i> 30 minutes
+                        </div>
+                        <div class="booking-price">৳500</div>
+                        <button class="btn-book-now" onclick="redirectToBooking('specialist')">Book Now</button>
+                    </div>
+
+                    <div class="booking-card">
+                        <div class="booking-card-header">
+                            <div class="booking-card-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="booking-card-title">Follow-up Consultation</div>
+                        </div>
+                        <p>Follow-up visits with your doctor for ongoing treatment and monitoring.</p>
+                        <div class="booking-duration">
+                            <i class="fas fa-hourglass-half"></i> 10 minutes
+                        </div>
+                        <div class="booking-price">₹200</div>
+                        <button class="btn-book-now" onclick="redirectToBooking('followup')">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="how-it-works-section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="font-size: 2rem; margin-bottom: 10px;">How Video Consultation Works</h2>
+                    <p style="color: #666; font-size: 1.05rem;">Simple steps to get quality healthcare at home</p>
+                </div>
+
+                <div class="how-it-works-grid">
+                    <div class="how-it-works-card">
+                        <div class="step-number">1</div>
+                        <h3>Book Your Slot</h3>
+                        <p>Choose your preferred doctor, date, and time. It takes just 2 minutes to book.</p>
+                    </div>
+
+                    <div class="how-it-works-card">
+                        <div class="step-number">2</div>
+                        <h3>Receive Link</h3>
+                        <p>Get the video call link via email and SMS 1 hour before consultation.</p>
+                    </div>
+
+                    <div class="how-it-works-card">
+                        <div class="step-number">3</div>
+                        <h3>Join Call</h3>
+                        <p>Click the link to join the secure video call. No app download needed.</p>
+                    </div>
+
+                    <div class="how-it-works-card">
+                        <div class="step-number">4</div>
+                        <h3>Consult Doctor</h3>
+                        <p>Discuss your health concerns with the doctor face-to-face via video.</p>
+                    </div>
+
+                    <div class="how-it-works-card">
+                        <div class="step-number">5</div>
+                        <h3>Get Prescription</h3>
+                        <p>Receive digital prescription and medical records instantly after consultation.</p>
+                    </div>
+
+                    <div class="how-it-works-card">
+                        <div class="step-number">6</div>
+                        <h3>Follow Up</h3>
+                        <p>Book follow-up consultations if needed for ongoing treatment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="faq-title">Frequently Asked Questions</h2>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>What equipment do I need for video consultation?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You just need a smartphone, tablet, or computer with a stable internet connection and a camera. We recommend having a quiet, well-lit space for the consultation.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Is my privacy protected during video consultation?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, absolutely. All video consultations are encrypted with military-grade security. We comply with HIPAA and GDPR standards. Your privacy and medical information are completely confidential.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Can I get a prescription from video consultation?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, doctors can issue valid digital prescriptions after the consultation. These can be directly sent to pharmacies or downloaded for your records.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>What if I have internet connection issues?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>If you experience connection issues, you can reschedule or request a callback. Our support team will help you troubleshoot. You won't be charged if the issue was on our end.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Are video consultations covered by insurance?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Most major insurance providers cover video consultations. We handle the claim processing. Check with your insurance provider or contact our support team for specific details.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Can I reschedule or cancel my consultation?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, you can reschedule or cancel up to 30 minutes before the consultation with no charges. Cancellations within 30 minutes may incur a nominal fee.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="consultation-cta">
+            <div class="container">
+                <h2>Ready to Consult with a Doctor?</h2>
+                <p>Start your video consultation today and get quality healthcare from the comfort of your home.</p>
+                <div class="cta-buttons">
+                    <button class="btn-start-consultation" onclick="window.location.href='appointments.html'">
+                        <i class="fas fa-video"></i> Start Consultation
+                    </button>
+                    <button class="btn-learn-more" onclick="scrollToSection('faq')">
+                        <i class="fas fa-question-circle"></i> Learn More
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About SMARTMEDI</h4>
+                    <p>Leading healthcare management platform providing quality medical services accessible to everyone.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Complaints</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><strong>Address:</strong> 123 Health Street, Medical City, MC 12345</p>
+                    <p><strong>Phone:</strong> <a href="tel:+18001234567">+1-800-123-4567</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@smartmedi.com">info@smartmedi.com</a></p>
+                    <p><strong>Hours:</strong> Mon-Fri 9AM-6PM | Sat 10AM-4PM</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 SMARTMEDI. All rights reserved. | Built with care for your health.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal" aria-label="Close login modal">&times;</button>
+            <h2>Login to SMARTMEDI</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <p class="login-note">Don't have an account? <a href="#signup">Sign up here</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Toggle FAQ Items
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            element.classList.toggle('active');
+            answer.classList.toggle('show');
+        }
+
+        // Redirect to booking with consultation type
+        function redirectToBooking(type) {
+            window.location.href = `appointments.html?consultationType=${type}`;
+        }
+
+        // Scroll to section
+        function scrollToSection(sectionId) {
+            const section = document.querySelector('.faq-section');
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Play button click
+        document.querySelector('.play-button')?.addEventListener('click', function() {
+            alert('Video demo would play here. Click "Book Now" to start your actual consultation!');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SMARTMEDI Emergency Services - Get immediate medical help 24/7">
+    <meta name="keywords" content="emergency, ambulance, emergency services, urgent care, healthcare emergency">
+    <title>Emergency Services - SMARTMEDI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        /* Emergency Page Styles */
+        .emergency-header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 80px;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: inset 0 0 0 0 rgba(255,255,255,0.3); }
+            50% { box-shadow: inset 0 0 0 20px rgba(255,255,255,0.1); }
+        }
+
+        .emergency-header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .emergency-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .emergency-container {
+            padding: 60px 20px;
+            background: #fff;
+        }
+
+        /* Quick Actions Bar */
+        .quick-emergency-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .emergency-action-btn {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 25px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 8px 16px rgba(255, 107, 107, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .emergency-action-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(255, 107, 107, 0.4);
+        }
+
+        .emergency-action-btn i {
+            font-size: 2rem;
+        }
+
+        /* Emergency Services Grid */
+        .emergency-services-section {
+            background: #f8f9fa;
+            padding: 60px 20px;
+            border-radius: 12px;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .service-response-time {
+            background: #ffe0e0;
+            padding: 10px 15px;
+            border-radius: 6px;
+            color: #d32f2f;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Hospital Directory */
+        .hospital-directory-section {
+            margin-bottom: 60px;
+        }
+
+        .hospital-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .hospital-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .hospital-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transform: translateY(-3px);
+        }
+
+        .hospital-header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 20px;
+        }
+
+        .hospital-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .hospital-rating {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .hospital-body {
+            padding: 20px;
+        }
+
+        .hospital-info-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .hospital-info-icon {
+            width: 30px;
+            height: 30px;
+            background: #ffe0e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff6b6b;
+            flex-shrink: 0;
+        }
+
+        .hospital-info-content {
+            flex: 1;
+        }
+
+        .hospital-info-label {
+            font-size: 0.85rem;
+            color: #999;
+            text-transform: uppercase;
+        }
+
+        .hospital-info-value {
+            font-size: 0.95rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .hospital-footer {
+            padding: 15px 20px;
+            background: #f8f9fa;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-hospital {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .btn-directions {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .btn-directions:hover {
+            background: #bbdefb;
+        }
+
+        .btn-call {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+        }
+
+        .btn-call:hover {
+            transform: scale(1.05);
+        }
+
+        /* First Aid Tips */
+        .first-aid-section {
+            background: linear-gradient(135deg, #fff5e1 0%, #ffe0b2 100%);
+            padding: 60px 20px;
+            border-radius: 12px;
+            margin-bottom: 60px;
+        }
+
+        .first-aid-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .first-aid-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .first-aid-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .first-aid-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #d32f2f;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .first-aid-card ol {
+            margin: 0;
+            padding-left: 20px;
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .first-aid-card li {
+            margin-bottom: 10px;
+        }
+
+        /* Emergency Contacts */
+        .emergency-contacts-section {
+            background: white;
+            padding: 60px 20px;
+            margin-bottom: 60px;
+        }
+
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+
+        .contact-box:hover {
+            border-color: #ff6b6b;
+            background: linear-gradient(135deg, #ffe0e0 0%, #ffcccc 100%);
+        }
+
+        .contact-box-icon {
+            font-size: 2rem;
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+
+        .contact-box-label {
+            font-size: 0.9rem;
+            color: #999;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .contact-box-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            text-decoration: none;
+        }
+
+        .contact-box-value:hover {
+            text-decoration: underline;
+        }
+
+        /* CTA Section */
+        .emergency-cta {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 60px;
+        }
+
+        .emergency-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .emergency-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .emergency-cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-call-now {
+            background: white;
+            color: #ff6b6b;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-call-now:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Modal for Emergency Report */
+        .emergency-report-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .emergency-report-content {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .emergency-report-content h2 {
+            margin-bottom: 20px;
+            color: #ff6b6b;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .form-buttons button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-cancel {
+            background: #e0e0e0;
+            color: #666;
+        }
+
+        .btn-cancel:hover {
+            background: #d0d0d0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .emergency-header h1 {
+                font-size: 2rem;
+            }
+
+            .quick-emergency-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .emergency-action-btn {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .hospital-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .emergency-cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-call-now {
+                width: 100%;
+            }
+
+            .emergency-report-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-brand">
+                    <i class="fas fa-heartbeat"></i>
+                    <span class="brand-name">SMARTMEDI</span>
+                </div>
+                
+                <button class="navbar-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="navbar-menu" id="navMenu">
+                    <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="../index.html#services" class="nav-link">Services</a></li>
+                    <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="navbar-actions">
+                    <a href="tel:18001234567" class="emergency-btn" title="Emergency Hotline">
+                        <i class="fas fa-phone"></i>
+                        <span class="hidden-mobile">+1-800-123-4567</span>
+                    </a>
+                    <button class="btn btn-primary" id="loginBtn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span class="hidden-mobile">Login</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Page Header -->
+        <section class="emergency-header">
+            <div class="container">
+                <h1><i class="fas fa-exclamation-triangle"></i> Emergency Services</h1>
+                <p>24/7 Emergency Support - We're Here When You Need Us Most</p>
+            </div>
+        </section>
+
+        <!-- Quick Emergency Actions -->
+        <section class="emergency-container">
+            <div class="container">
+                <div class="quick-emergency-actions">
+                    <button class="emergency-action-btn" onclick="callAmbulance()">
+                        <i class="fas fa-ambulance"></i>
+                        Call Ambulance
+                    </button>
+                    <button class="emergency-action-btn" onclick="emergencyDoctor()">
+                        <i class="fas fa-user-md"></i>
+                        Emergency Doctor
+                    </button>
+                    <button class="emergency-action-btn" onclick="openReportModal()">
+                        <i class="fas fa-file-medical-alt"></i>
+                        Report Emergency
+                    </button>
+                    <button class="emergency-action-btn" onclick="findHospital()">
+                        <i class="fas fa-hospital"></i>
+                        Find Hospital
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Services -->
+        <section class="emergency-services-section">
+            <div class="container">
+                <h2 class="section-title">Our Emergency Services</h2>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-ambulance"></i>
+                        </div>
+                        <h3>Ambulance Service</h3>
+                        <p>Fast and reliable ambulance with trained medical staff. Available 24/7 throughout the city.</p>
+                        <div class="service-response-time">
+                            <i class="fas fa-clock"></i> Response Time: 5-10 minutes
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>Telemedicine Emergency</h3>
+                        <p>Instant video consultation with emergency medical specialists for urgent non-critical issues.</p>
+                        <div class="service-response-time">
+                            <i class="fas fa-clock"></i> Response Time: 2-5 minutes
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-first-aid"></i>
+                        </div>
+                        <h3>First Aid Guidance</h3>
+                        <p>Get immediate first aid instructions from trained medical professionals over phone or video.</p>
+                        <div class="service-response-time">
+                            <i class="fas fa-clock"></i> Response Time: 1-3 minutes
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h3>Hospital Admission</h3>
+                        <p>Direct admission to partner hospitals with pre-registration and priority treatment.</p>
+                        <div class="service-response-time">
+                            <i class="fas fa-clock"></i> Response Time: Instant
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-syringe"></i>
+                        </div>
+                        <h3>Emergency Medications</h3>
+                        <p>Emergency medication delivery service for critical medicines at your doorstep.</p>
+                        <div class="service-response-time">
+                            <i class="fas fa-clock"></i> Response Time: 15-30 minutes
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-phone-square-alt"></i>
+                        </div>
+                        <h3>24/7 Helpline</h3>
+                        <p>Professional operators ready to guide you during medical emergencies.</p>
+                        <div class="service-response-time">
+                            <i class="fas fa-clock"></i> Response Time: Immediate
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hospital Directory -->
+        <section class="hospital-directory-section">
+            <div class="container">
+                <h2 class="section-title">Nearby Emergency Hospitals</h2>
+                
+                <div class="hospital-grid">
+                    <div class="hospital-card">
+                        <div class="hospital-header">
+                            <div class="hospital-name">SMARTMEDI Heart Care</div>
+                            <div class="hospital-rating">⭐ 4.8 (342 reviews)</div>
+                        </div>
+                        <div class="hospital-body">
+                            <div class="hospital-info-item">
+                                <div class="hospital-info-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="hospital-info-content">
+                                    <div class="hospital-info-label">Location</div>
+                                    <div class="hospital-info-value">2.3 km away</div>
+                                </div>
+                            </div>
+                            <div class="hospital-info-item">
+                                <div class="hospital-info-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="hospital-info-content">
+                                    <div class="hospital-info-label">Emergency</div>
+                                    <div class="hospital-info-value">+1-800-999-0001</div>
+                                </div>
+                            </div>
+                            <div class="hospital-info-item">
+                                <div class="hospital-info-icon">
+                                    <i class="fas fa-bed"></i>
+                                </div>
+                                <div class="hospital-info-content">
+                                    <div class="hospital-info-label">Beds Available</div>
+                                    <div class="hospital-info-value">45 ICU • 120 General</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hospital-footer">
+                            <button class="btn-hospital btn-directions" onclick="viewDirections()">
+                                <i class="fas fa-directions"></i> Directions
+                            </button>
+                            <button class="btn-hospital btn-call" onclick="callHospital('+1-800-999-0001')">
+                                <i class="fas fa-phone"></i> Call
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="hospital-card">
+                        <div class="hospital-header">
+                            <div class="hospital-name">SMARTMEDI General Hospital</div>
+                            <div class="hospital-rating">⭐ 4.7 (256 reviews)</div>
+                        </div>
+                        <div class="hospital-body">
+                            <div class="hospital-info-item">
+                                <div class="hospital-info-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="hospital-info-content">
+                                    <div class="hospital-info-label">Location</div>
+                                    <div class="hospital-info-value">3.1 km away</div>
+                                </div>
+                            </div>
+                            <div class="hospital-info-item">
+                                <div class="hospital-info-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="hospital-info-content">
+                                    <div class="hospital-info-label">Emergency</div>
+                                    <div class="hospital-info-value">+1-800-999-0002</div>
+                                </div>
+                            </div>
+                            <div class="hospital-info-item">
+                                <div class="hospital-info-icon">
+                                    <i class="fas fa-bed"></i>
+                                </div>
+                                <div class="hospital-info-content">
+                                    <div class="hospital-info-label">Beds Available</div>
+                                    <div class="hospital-info-value">50 ICU • 180 General</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hospital-footer">
+                            <button class="btn-hospital btn-directions" onclick="viewDirections()">
+                                <i class="fas fa-directions"></i> Directions
+                            </button>
+                            <button class="btn-hospital btn-call" onclick="callHospital('+1-800-999-0002')">
+                                <i class="fas fa-phone"></i> Call
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="hospital-card">
+                        <div class="hospital-header">
+                            <div class="hospital-name">SMARTMEDI Trauma Center</div>
+                            <div class="hospital-rating">⭐ 4.9 (419 reviews)</div>
+                        </div>
+                        <div class="hospital-body">
+                            <div class="hospital-info-item">
+                                <div class="hospital-info-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="hospital-info-content">
+                                    <div class="hospital-info-label">Location</div>
+                                    <div class="hospital-info-value">1.8 km away</div>
+                                </div>
+                            </div>
+                            <div class="hospital-info-item">
+                                <div class="hospital-info-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="hospital-info-content">
+                                    <div class="hospital-info-label">Emergency</div>
+                                    <div class="hospital-info-value">+1-800-999-0003</div>
+                                </div>
+                            </div>
+                            <div class="hospital-info-item">
+                                <div class="hospital-info-icon">
+                                    <i class="fas fa-bed"></i>
+                                </div>
+                                <div class="hospital-info-content">
+                                    <div class="hospital-info-label">Beds Available</div>
+                                    <div class="hospital-info-value">60 ICU • 200 General</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hospital-footer">
+                            <button class="btn-hospital btn-directions" onclick="viewDirections()">
+                                <i class="fas fa-directions"></i> Directions
+                            </button>
+                            <button class="btn-hospital btn-call" onclick="callHospital('+1-800-999-0003')">
+                                <i class="fas fa-phone"></i> Call
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- First Aid Tips -->
+        <section class="first-aid-section">
+            <div class="container">
+                <h2 class="section-title" style="color: #d32f2f;">Important First Aid Tips</h2>
+                
+                <div class="first-aid-grid">
+                    <div class="first-aid-card">
+                        <h3><i class="fas fa-heartbeat"></i> Cardiac Arrest</h3>
+                        <ol>
+                            <li>Call ambulance immediately</li>
+                            <li>Start CPR (chest compression)</li>
+                            <li>Continue until ambulance arrives</li>
+                            <li>Use AED if available</li>
+                        </ol>
+                    </div>
+
+                    <div class="first-aid-card">
+                        <h3><i class="fas fa-head-side-virus"></i> Severe Bleeding</h3>
+                        <ol>
+                            <li>Apply direct pressure with clean cloth</li>
+                            <li>Elevate the affected area</li>
+                            <li>Apply tourniquet if necessary</li>
+                            <li>Call ambulance immediately</li>
+                        </ol>
+                    </div>
+
+                    <div class="first-aid-card">
+                        <h3><i class="fas fa-brain"></i> Stroke Signs (FAST)</h3>
+                        <ol>
+                            <li>Face - Check for facial drooping</li>
+                            <li>Arm - Check arm weakness</li>
+                            <li>Speech - Check for slurred speech</li>
+                            <li>Time - Call ambulance immediately</li>
+                        </ol>
+                    </div>
+
+                    <div class="first-aid-card">
+                        <h3><i class="fas fa-bone"></i> Fractures</h3>
+                        <ol>
+                            <li>Immobilize the injured area</li>
+                            <li>Apply ice to reduce swelling</li>
+                            <li>Elevate if possible</li>
+                            <li>Seek medical attention</li>
+                        </ol>
+                    </div>
+
+                    <div class="first-aid-card">
+                        <h3><i class="fas fa-fire"></i> Burn Injuries</h3>
+                        <ol>
+                            <li>Cool the burn with water (10-20 min)</li>
+                            <li>Remove jewelry/tight clothing</li>
+                            <li>Cover with clean, dry cloth</li>
+                            <li>Seek medical help for severe burns</li>
+                        </ol>
+                    </div>
+
+                    <div class="first-aid-card">
+                        <h3><i class="fas fa-eye"></i> Eye Injuries</h3>
+                        <ol>
+                            <li>Don't rub the eye</li>
+                            <li>Rinse with clean water gently</li>
+                            <li>Cover with sterile pad</li>
+                            <li>Seek immediate medical care</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Contacts -->
+        <section class="emergency-contacts-section">
+            <div class="container">
+                <h2 class="section-title">Emergency Contact Numbers</h2>
+                
+                <div class="contacts-grid">
+                    <div class="contact-box">
+                        <div class="contact-box-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-box-label">SMARTMEDI Emergency</div>
+                        <a href="tel:+18001234567" class="contact-box-value">+1-800-123-4567</a>
+                    </div>
+
+                    <div class="contact-box">
+                        <div class="contact-box-icon">
+                            <i class="fas fa-ambulance"></i>
+                        </div>
+                        <div class="contact-box-label">Ambulance Service</div>
+                        <a href="tel:+18009876543" class="contact-box-value">+1-800-987-6543</a>
+                    </div>
+
+                    <div class="contact-box">
+                        <div class="contact-box-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <div class="contact-box-label">Trauma Center</div>
+                        <a href="tel:+18009990003" class="contact-box-value">+1-800-999-0003</a>
+                    </div>
+
+                    <div class="contact-box">
+                        <div class="contact-box-icon">
+                            <i class="fas fa-fire-extinguisher"></i>
+                        </div>
+                        <div class="contact-box-label">Fire Department</div>
+                        <a href="tel:911" class="contact-box-value">911</a>
+                    </div>
+
+                    <div class="contact-box">
+                        <div class="contact-box-icon">
+                            <i class="fas fa-police"></i>
+                        </div>
+                        <div class="contact-box-label">Police</div>
+                        <a href="tel:911" class="contact-box-value">911</a>
+                    </div>
+
+                    <div class="contact-box">
+                        <div class="contact-box-icon">
+                            <i class="fas fa-virus"></i>
+                        </div>
+                        <div class="contact-box-label">Poison Control</div>
+                        <a href="tel:+18008001222" class="contact-box-value">+1-800-800-1222</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="emergency-cta">
+            <div class="container">
+                <h2>Need Immediate Help?</h2>
+                <p>Our emergency team is available 24/7 to assist you</p>
+                <div class="emergency-cta-buttons">
+                    <button class="btn-call-now" onclick="callAmbulance()">
+                        <i class="fas fa-ambulance"></i> Call Ambulance Now
+                    </button>
+                    <button class="btn-call-now" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white;" onclick="emergencyDoctor()">
+                        <i class="fas fa-phone"></i> Talk to Doctor
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About SMARTMEDI</h4>
+                    <p>Leading healthcare management platform providing quality medical services accessible to everyone, 24/7.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="prescriptions.html">Prescriptions</a></li>
+                        <li><a href="emergency.html">Emergency</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Complaints</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Emergency</h4>
+                    <p><strong>24/7 Hotline:</strong> <a href="tel:+18001234567">+1-800-123-4567</a></p>
+                    <p><strong>Ambulance:</strong> <a href="tel:+18009876543">+1-800-987-6543</a></p>
+                    <p><strong>Emergency:</strong> 911</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 SMARTMEDI. All rights reserved. Emergency services available 24/7.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Emergency Report Modal -->
+    <div class="emergency-report-modal" id="emergencyReportModal">
+        <div class="emergency-report-content">
+            <h2>Report Emergency</h2>
+            <form id="emergencyForm" onsubmit="submitEmergencyReport(event)">
+                <div class="form-group">
+                    <label for="emergencyType">Type of Emergency</label>
+                    <select style="padding: 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-family: inherit; width: 100%;">
+                        <option>Heart Attack</option>
+                        <option>Stroke</option>
+                        <option>Severe Bleeding</option>
+                        <option>Accident/Trauma</option>
+                        <option>Difficulty Breathing</option>
+                        <option>Severe Pain</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" placeholder="Enter your location or address">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" placeholder="Your contact number">
+                </div>
+
+                <div class="form-group">
+                    <label for="details">Details</label>
+                    <textarea placeholder="Describe the emergency situation..." rows="4"></textarea>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-check"></i> Submit
+                    </button>
+                    <button type="button" class="btn-cancel" onclick="closeReportModal()">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        function callAmbulance() {
+            const confirmed = confirm('Calling SMARTMEDI Ambulance Service\n\n📞 +1-800-987-6543\n\nYour location will be sent to the nearest ambulance. Continue?');
+            if (confirmed) {
+                window.location.href = 'tel:+18009876543';
+            }
+        }
+
+        function emergencyDoctor() {
+            const confirmed = confirm('Connect with Emergency Doctor\n\n📞 +1-800-123-4567\n\nYou will be connected to the nearest available emergency doctor. Continue?');
+            if (confirmed) {
+                window.location.href = 'tel:+18001234567';
+            }
+        }
+
+        function callHospital(phoneNumber) {
+            window.location.href = `tel:${phoneNumber}`;
+        }
+
+        function viewDirections() {
+            alert('Opening directions in your default maps application...');
+            window.open('https://maps.google.com', '_blank');
+        }
+
+        function findHospital() {
+            const hospitalSection = document.querySelector('.hospital-directory-section');
+            if (hospitalSection) {
+                hospitalSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function openReportModal() {
+            document.getElementById('emergencyReportModal').style.display = 'flex';
+        }
+
+        function closeReportModal() {
+            document.getElementById('emergencyReportModal').style.display = 'none';
+        }
+
+        function submitEmergencyReport(event) {
+            event.preventDefault();
+            alert('✅ Emergency report submitted!\n\nAn emergency team has been dispatched to your location.\nPlease stay safe and keep your phone accessible.');
+            closeReportModal();
+            document.getElementById('emergencyForm').reset();
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('emergencyReportModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Doctor / Patient Login</title>
+  <style>
+    :root{
+      --bg:#f3f6fb;
+      --card-radius:18px;
+      --card-shadow: 0 8px 30px rgba(28,40,60,0.08);
+      --accent: #4f46e5;
+      --patient-accent: #10b981; /* Added patient accent color */
+      --muted: #6b7280;
+      --gap:20px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
+      color:#0f172a;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:1100px;
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:var(--gap);
+      align-items:stretch;
+    }
+
+    .card{
+      position:relative;
+      height:480px;
+      border-radius:var(--card-radius);
+      overflow:hidden;
+      box-shadow:var(--card-shadow);
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      color:white;
+    }
+
+    .card.doctor{
+      background-image: linear-gradient(180deg, rgba(8,10,25,0.12) 0%, rgba(8,10,25,0.35) 60%), url('../image/doctorloginphoto.jpg');
+      background-size:cover;
+      background-position:center right;
+    }
+    .card.patient{
+      background-image: linear-gradient(180deg, rgba(8,10,25,0.12) 0%, rgba(8,10,25,0.35) 60%), url('../image/patientloginphoto.jpeg');
+      background-size:cover;
+      background-position:center left;
+    }
+
+    .card .meta{
+      padding:28px;
+      backdrop-filter: blur(2px);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .role{
+      font-size:20px;
+      font-weight:600;
+      letter-spacing:0.2px;
+      text-transform:uppercase;
+      opacity:0.95;
+    }
+
+    .desc{
+      font-size:14px;
+      color:rgba(255,255,255,0.92);
+      max-width:380px;
+      line-height:1.4;
+    }
+
+    .bottom-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-top:8px;
+    }
+
+    .btn{
+      background:rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.18);
+      color:white;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:600;
+      cursor:pointer;
+      text-decoration:none;
+      transition:transform .14s ease, background .14s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .btn:hover{transform:translateY(-3px); background:rgba(255,255,255,0.16)}
+
+    .btn.primary{
+      background:linear-gradient(90deg,var(--accent), #00FF00);
+      border:none;
+      box-shadow: 0 6px 18px rgba(79,70,229,0.18);
+    }
+
+    /* Added patient button style */
+    .btn.patient-btn{
+      background:linear-gradient(90deg,var(--patient-accent), #34d399);
+      border:none;
+      box-shadow: 0 6px 18px rgba(16,185,129,0.18);
+    }
+
+    /* small note at top-left */
+    .badge{
+      position:absolute;
+      left:18px;
+      top:18px;
+      background:rgba(255,255,255,0.12);
+      color:white;
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:600;
+      font-size:13px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* footer button area which sits below both cards */
+    .footer-actions{
+      grid-column:1 / -1;
+      margin-top:14px;
+      display:flex;
+      justify-content:center;
+      gap:18px;
+    }
+
+    .footer-actions a{
+      padding:12px 20px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:700;
+      color:#0f172a;
+      background:#fff;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.06);
+    }
+
+    /* Responsive */
+    @media (max-width:880px){
+      .wrap{grid-template-columns:1fr;}
+      .card{height:420px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card doctor">
+      <div class="badge">Doctor</div>
+      <div class="meta">
+        <div class="role">Doctor Portal</div>
+        <div class="desc">Access patient records, manage appointments, and provide teleconsultations. Secure sign-in for verified healthcare professionals.</div>
+        <div class="bottom-row">
+          <div style="flex:1"></div>
+          <a class="btn primary" href="../pages/Doctor.html">Doctor Login</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card patient">
+      <div class="badge">Patient</div>
+      <div class="meta">
+        <div class="role">Patient Portal</div>
+        <div class="desc">Book appointments, view lab results, and message your care team. Easy and secure access for patients and caregivers.</div>
+        <div class="bottom-row">
+          <div style="flex:1"></div>
+          <a class="btn patient-btn" href="../pages/Patient.html" >Patient Login</a>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>
+

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find and book appointments with SMARTMEDI doctors. Search by specialty, location, and availability.">
+    <title>Doctors - SMART MEDICAL SYSTEM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .doctors-header {
+            background: linear-gradient(135deg, #E8F4FF 0%, #DFF3FB 100%);
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+
+        .doctors-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .filters-sidebar {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(20, 30, 50, 0.06);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .filter-group {
+            margin-bottom: 24px;
+        }
+
+        .filter-group h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #222;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .filter-option input[type="checkbox"],
+        .filter-option input[type="radio"] {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .filter-option label {
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .search-box {
+            margin-bottom: 24px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #E0E3E8;
+            border-radius: 8px;
+            font-family: var(--font-sans);
+        }
+
+        .doctors-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .doctor-profile-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(20, 30, 50, 0.06);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .doctor-profile-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(20, 30, 50, 0.1);
+        }
+
+        .doctor-card-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+            padding: 24px;
+        }
+
+        .doctor-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #4A90E2, #17A2B8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .doctor-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .doctor-details p {
+            color: #6C757D;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .doctor-details .languages {
+            color: #0D6EFD;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .doctor-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .doctor-rating .stars {
+            color: #FFC107;
+        }
+
+        .doctor-fees {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            border-top: 1px solid #E0E3E8;
+            margin-top: 12px;
+        }
+
+        .consultation-type {
+            font-size: 0.85rem;
+            color: #6C757D;
+        }
+
+        .consultation-type .badge {
+            display: inline-block;
+            background: #E8F4FF;
+            color: #0D6EFD;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-right: 6px;
+            font-weight: 600;
+        }
+
+        .next-availability {
+            font-size: 0.85rem;
+            color: #28A745;
+            font-weight: 600;
+        }
+
+        .book-btn {
+            background: #0D6EFD;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .book-btn:hover {
+            background: #0A5BC4;
+        }
+
+        @media (max-width: 1024px) {
+            .doctors-container {
+                grid-template-columns: 1fr;
+            }
+
+            .filters-sidebar {
+                position: static;
+            }
+
+            .doctors-list {
+                grid-template-columns: 1fr;
+            }
+
+            .doctor-card-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-brand">
+                    <i class="fas fa-heartbeat"></i>
+                    <span class="brand-name">SMARTMEDI</span>
+                </div>
+                
+                <button class="navbar-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="navbar-menu" id="navMenu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="../index.html#services" class="nav-link">Services</a></li>
+                    <li><a href="doctors.html" class="nav-link active">Doctors</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="navbar-actions">
+                    <a href="tel:+18001234567" class="emergency-btn" title="Emergency Hotline">
+                        <i class="fas fa-phone"></i>
+                        <span class="hidden-mobile">+8801780358209</span>
+                    </a>
+                    <a href="login.html">
+                        <button class="btn btn-primary-sm" id="loginBtn">Login</button>
+                    </a>
+
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Header -->
+        <section class="doctors-header">
+            <div class="container">
+                <h1>Find Your Doctor</h1>
+                <p>Search and book appointments with our experienced specialists</p>
+            </div>
+        </section>
+
+        <!-- Doctors Section -->
+        <section>
+            <div class="container">
+                <div class="doctors-container">
+                    <!-- Filters Sidebar -->
+                    <aside class="filters-sidebar">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search doctor name..." id="searchInput">
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Specialty</h4>
+                            <div class="filter-option">
+                                <input type="checkbox" id="cardio" value="Cardiology">
+                                <label for="cardio">Cardiology</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="neuro" value="Neurology">
+                                <label for="neuro">Neurology</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="ortho" value="Orthopedic">
+                                <label for="ortho">Orthopedic</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="pedi" value="Pediatrics">
+                                <label for="pedi">Pediatrics</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="general" value="General">
+                                <label for="general">General</label>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Availability</h4>
+                            <div class="filter-option">
+                                <input type="radio" name="availability" value="today">
+                                <label>Today</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="radio" name="availability" value="tomorrow">
+                                <label>Tomorrow</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="radio" name="availability" value="week">
+                                <label>This Week</label>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Rating</h4>
+                            <div class="filter-option">
+                                <input type="checkbox" id="rating5">
+                                <label for="rating5"><i class="fas fa-star"></i> 4.5+ stars</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="rating4">
+                                <label for="rating4"><i class="fas fa-star"></i> 4.0+ stars</label>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Consultation Type</h4>
+                            <div class="filter-option">
+                                <input type="checkbox" id="video">
+                                <label for="video">Video Available</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="inperson">
+                                <label for="inperson">In-Person</label>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Doctors List -->
+                    <div class="doctors-list">
+                        <!-- Doctor 1 -->
+                        <div class="doctor-profile-card">
+                            <div class="doctor-card-content">
+                                <div class="doctor-avatar">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="doctor-details">
+                                    <h3>Dr. Touhid Ara Himu</h3>
+                                    <p><strong>Cardiologist</strong></p>
+                                    <p>12 years experience</p>
+                                    <p class="languages">🇬🇧 English, 🇧🇩 Bengali</p>
+                                    <div class="doctor-rating">
+                                        <span class="stars"><i class="fas fa-star"></i> 4.8</span>
+                                        <span>(234 reviews)</span>
+                                    </div>
+                                    <div class="consultation-type">
+                                        <span class="badge">Video</span>
+                                        <span class="badge">In-Person</span>
+                                    </div>
+                                    <div class="doctor-fees">
+                                        <span>৳500 Consultation</span>
+                                        <button class="book-btn" onclick="alert('Redirecting to booking...')">Book</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Doctor 2 -->
+                        <div class="doctor-profile-card">
+                            <div class="doctor-card-content">
+                                <div class="doctor-avatar" style="background: linear-gradient(135deg, #FF6B6B, #FF8E72);">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="doctor-details">
+                                    <h3>Dr. Mahmudul Hasan</h3>
+                                    <p><strong>Neurologist</strong></p>
+                                    <p>15 years experience</p>
+                                    <p class="languages">🇬🇧 English, 🇧🇩 Bengali</p>
+                                    <div class="doctor-rating">
+                                        <span class="stars"><i class="fas fa-star"></i> 5.0</span>
+                                        <span>(189 reviews)</span>
+                                    </div>
+                                    <div class="consultation-type">
+                                        <span class="badge">Video</span>
+                                        <span class="badge">In-Person</span>
+                                    </div>
+                                    <div class="doctor-fees">
+                                        <span>৳600 Consultation</span>
+                                        <button class="book-btn" onclick="alert('Redirecting to booking...')">Book</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Doctor 3 -->
+                        <div class="doctor-profile-card">
+                            <div class="doctor-card-content">
+                                <div class="doctor-avatar" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="doctor-details">
+                                    <h3>Dr. Tasnuva Islam Ayona</h3>
+                                    <p><strong>Orthopedic Surgeon</strong></p>
+                                    <p>18 years experience</p>
+                                    <p class="languages">🇬🇧 English, 🇧🇩 Bengali</p>
+                                    <div class="doctor-rating">
+                                        <span class="stars"><i class="fas fa-star"></i> 4.7</span>
+                                        <span>(312 reviews)</span>
+                                    </div>
+                                    <div class="consultation-type">
+                                        <span class="badge">In-Person</span>
+                                    </div>
+                                    <div class="doctor-fees">
+                                        <span>৳500 Consultation</span>
+                                        <button class="book-btn" onclick="alert('Redirecting to booking...')">Book</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Doctor 4 -->
+                        <div class="doctor-profile-card">
+                            <div class="doctor-card-content">
+                                <div class="doctor-avatar" style="background: linear-gradient(135deg, #FFE66D, #FFC93C);">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="doctor-details">
+                                    <h3>Dr. Tousif Rashid</h3>
+                                    <p><strong>Pediatrician</strong></p>
+                                    <p>10 years experience</p>
+                                    <p class="languages">🇬🇧 English, 🇧🇩 Bengali</p>
+                                    <div class="doctor-rating">
+                                        <span class="stars"><i class="fas fa-star"></i> 4.9</span>
+                                        <span>(267 reviews)</span>
+                                    </div>
+                                    <div class="consultation-type">
+                                        <span class="badge">Video</span>
+                                        <span class="badge">In-Person</span>
+                                    </div>
+                                    <div class="doctor-fees">
+                                        <span>৳400 Consultation</span>
+                                        <button class="book-btn" onclick="alert('Redirecting to booking...')">Book</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Doctor 5 -->
+                        <div class="doctor-profile-card">
+                            <div class="doctor-card-content">
+                                <div class="doctor-avatar" style="background: linear-gradient(135deg, #A8EDEA, #FED6E3);">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="doctor-details">
+                                    <h3>Dr. Junayed Khan</h3>
+                                    <p><strong>Dermatologist</strong></p>
+                                    <p>8 years experience</p>
+                                    <p class="languages">🇬🇧 English, 🇧🇩 Bengali</p>
+                                    <div class="doctor-rating">
+                                        <span class="stars"><i class="fas fa-star"></i> 4.6</span>
+                                        <span>(145 reviews)</span>
+                                    </div>
+                                    <div class="consultation-type">
+                                        <span class="badge">Video</span>
+                                    </div>
+                                    <div class="doctor-fees">
+                                        <span>৳450 Consultation</span>
+                                        <button class="book-btn" onclick="alert('Redirecting to booking...')">Book</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Doctor 6 -->
+                        <div class="doctor-profile-card">
+                            <div class="doctor-card-content">
+                                <div class="doctor-avatar" style="background: linear-gradient(135deg, #667EEA, #764BA2);">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="doctor-details">
+                                    <h3>Dr. Akash</h3>
+                                    <p><strong>General Physician</strong></p>
+                                    <p>7 years experience</p>
+                                    <p class="languages">🇬🇧 English, 🇧🇩 Bengali</p>
+                                    <div class="doctor-rating">
+                                        <span class="stars"><i class="fas fa-star"></i> 4.8</span>
+                                        <span>(198 reviews)</span>
+                                    </div>
+                                    <div class="consultation-type">
+                                        <span class="badge">Video</span>
+                                        <span class="badge">In-Person</span>
+                                    </div>
+                                    <div class="doctor-fees">
+                                        <span>৳350 Consultation</span>
+                                        <button class="book-btn" onclick="alert('Redirecting to booking...')">Book</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About SMARTMEDI</h4>
+                    <p>Leading healthcare management platform providing quality medical services accessible to everyone.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Complaints</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><strong>Address:</strong> 123 Health Street, Basundhara R/A</p>
+                    <p><strong>Phone:</strong> <a href="tel:+18001234567">+88-01780358209</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@smartmedi.com">info@smartmedi.com</a></p>
+                    <p><strong>Hours:</strong> Mon-Fri 9AM-6PM | Sat 10AM-4PM</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 SMARTMEDI. All rights reserved. | Built with care for your health.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal 
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal" aria-label="Close login modal">&times;</button>
+            <h2>Login to SMARTMEDI</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <p class="login-note">Don't have an account? <a href="#signup">Sign up here</a></p>
+            </form>
+        </div>
+    </div>  -->
+     
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

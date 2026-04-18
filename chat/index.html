@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Public Chat - SMARTMEDI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>Chat (Guest)</h2>
+
+<div id="chatBox"></div>
+
+<form id="chatForm">
+    <input type="hidden" name="sender" value="Guest">
+    <input type="hidden" name="receiver" value="all">
+    <input type="text" name="message" placeholder="Type message..." required>
+    <button type="submit">Send</button>
+</form>
+
+<script src="chat.js"></script>
+</body>
+</html>

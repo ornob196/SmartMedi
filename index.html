@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SMARTMEDI - Smart Health Management System. Book appointments, consult doctors online, and manage your health records securely.">
+    <meta name="keywords" content="healthcare, telemedicine, online consultation, appointment booking, digital health">
+    <title>SMARTMEDI - Smart Health Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-brand">
+                    <i class="fas fa-heartbeat"></i>
+                    <span class="brand-name">SMARTMEDI</span>
+                </div>
+                
+                <button class="navbar-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="navbar-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="pages/about.html" class="nav-link">About</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="pages/doctors.html" class="nav-link">Doctors</a></li>
+                    <li><a href="pages/contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="navbar-actions">
+                    <a href="tel:+18001234567" class="emergency-btn" title="Emergency Hotline">
+                        <i class="fas fa-phone"></i>
+                        <span class="hidden-mobile">+8801780358209</span>
+                    </a>
+                   <li class="nav-item">
+                        <a href="pages/login.html" class="btn btn-primary">
+                           Login
+                        </a>
+                    </li>
+
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home" aria-label="Hero section">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <h1>Smart care, closer to you</h1>
+                        <p class="hero-subtitle">Book appointments, consult online, manage your health records securely — all in one place.</p>
+                        
+                        <div class="hero-actions">
+                            <a href="pages/Patient.html" class="btn btn-primary btn-lg">
+                                <i class="fas fa-calendar-check"></i>
+                                Book Appointment
+                            </a>
+                            <a href="pages/doctors.html" class="btn btn-outline btn-lg">
+                                <i class="fas fa-user-md"></i>
+                                Find a Doctor
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual">
+                        <div class="hero-card">
+                           <img src="./assets/images/team.jpg" alt="" srcset="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <div class="container">
+                <div class="actions-grid">
+                     <a href="#" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Book Appointment</h3>
+                        <p>Schedule with preferred doctor</p>
+                    </a> 
+
+                    <a href="#" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>Video Consultation</h3>
+                        <p>Consult from home instantly</p>
+                    </a>
+
+                    <a href="#" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-prescription-bottle"></i>
+                        </div>
+                        <h3>My Prescriptions</h3>
+                        <p>Access digital prescriptions <br> Sign In for use this features</p>
+                    </a>
+
+                    <a href="pages/emergency.html" class="action-card emergency">
+                        <div class="action-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Emergency</h3>
+                        <p>Get immediate help</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="how-it-works" id="howitworks">
+            <div class="container">
+                <div class="section-header">
+                    <h2>How It Works</h2>
+                    <p>Simple steps to better health</p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Search & Choose</h3>
+                        <p>Browse doctors or select a service that matches your health needs.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Book or Consult</h3>
+                        <p>Schedule an appointment or start an instant video consultation.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <i class="fas fa-file-medical"></i>
+                        </div>
+                        <h3>Get Care & Records</h3>
+                        <p>Receive e-prescriptions, lab reports, and digital health records.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Overview -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Services</h2>
+                    <p>Comprehensive healthcare solutions</p>
+                </div>
+
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>General OPD</h3>
+                        <p>Consultation for routine health concerns and preventive care.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <h3>Pediatrics</h3>
+                        <p>Specialized care for infants, children, and adolescents.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Cardiology</h3>
+                        <p>Heart health assessments and cardiac care management.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Lab Tests</h3>
+                        <p>Home collection and diagnostic testing services.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Home Care</h3>
+                        <p>In-home nursing and medical support services.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Insurance Support</h3>
+                        <p>Cashless treatment and insurance claim assistance.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Doctors -->
+        <section class="featured-doctors" id="doctors">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Meet Our Specialists</h2>
+                    <p>Experienced doctors ready to care for you</p>
+                </div>
+
+                <div class="doctors-grid">
+                    <article class="doctor-card">
+                        <div class="doctor-image">
+                            <div class="placeholder-image small">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <span class="availability-badge">Available Today</span>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>Dr. Touhid Ara Himu</h3>
+                            <p class="specialty">Cardiologist</p>
+                            <p class="experience">12 years experience • English, Bengali</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.8) 234 reviews</span>
+                            </div>
+                            <p class="consultation-fee">৳500 Consultation</p>
+                            <a href="pages/Patient.html" class="btn btn-primary btn-block">Book Appointment</a>
+                        </div>
+                    </article>
+
+                    <article class="doctor-card">
+                        <div class="doctor-image">
+                            <div class="placeholder-image small">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <span class="availability-badge next-slot">Next slot: Tomorrow</span>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>Dr. Mahmudul Hasan</h3>
+                            <p class="specialty">Neurologist</p>
+                            <p class="experience">15 years experience • English, Bengali</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(5.0) 189 reviews</span>
+                            </div>
+                            <p class="consultation-fee">৳600 Consultation</p>
+                            <a href="pages/Patient.html" class="btn btn-primary btn-block">Book Appointment</a>
+                        </div>
+                    </article>
+
+                    <article class="doctor-card">
+                        <div class="doctor-image">
+                            <div class="placeholder-image small">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <span class="availability-badge">Available Today</span>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>Dr. Tasnuva Islam Ayona</h3>
+                            <p class="specialty">Orthopedic Surgeon</p>
+                            <p class="experience">18 years experience • English, Bengali</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.7) 312 reviews</span>
+                            </div>
+                            <p class="consultation-fee">৳500 Consultation</p>
+                            <a href="pages/appointments.html" class="btn btn-primary btn-block">Book Appointment</a>
+                        </div>
+                    </article>
+
+                    <article class="doctor-card">
+                        <div class="doctor-image">
+                            <div class="placeholder-image small">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <span class="availability-badge">Available Today</span>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>Dr. Tousif Rashid</h3>
+                            <p class="specialty">Pediatrician</p>
+                            <p class="experience">10 years experience • English, Bengali</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.9) 267 reviews</span>
+                            </div>
+                            <p class="consultation-fee">৳400 Consultation</p>
+                            <a href="pages/Patient.html" class="btn btn-primary btn-block">Book Appointment</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="view-all">
+                    <a href="pages/doctors.html" class="btn btn-outline">View All Doctors</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Showcase Section -->
+        <section class="team-showcase">
+            <div class="container">
+                <div class="team-showcase-grid">
+                    <div class="team-showcase-content">
+                        <h2>Meet Our Expert Medical Team</h2>
+                        <p>Our dedicated team of healthcare professionals is committed to providing exceptional medical care and support to every patient. With years of experience and expertise across multiple specialties, we ensure quality treatment and compassionate care.</p>
+                        
+                        <div class="team-highlight-list">
+                            <div class="team-highlight-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Board-certified specialists</span>
+                            </div>
+                            <div class="team-highlight-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>24/7 availability for emergencies</span>
+                            </div>
+                            <div class="team-highlight-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Latest medical technology</span>
+                            </div>
+                            <div class="team-highlight-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Patient-centered approach</span>
+                            </div>
+                            <div class="team-highlight-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Multilingual support available</span>
+                            </div>
+                        </div>
+
+                        <a href="pages/doctors.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-stethoscope"></i>
+                            Meet All Doctors
+                        </a>
+                    </div>
+
+                    <div class="team-image-container">
+                        <img src="assets/images/team.jpg" alt="Professional medical team - SMARTMEDI healthcare professionals" title="Our Expert Medical Team" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div style="display:none; width:100%; height:100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; align-items: center; justify-content: center; color: white; text-align: center;">
+                            <div>
+                                <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                                <p>Medical Team Image</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+
+        <!-- Statistics & Testimonials -->
+        <section class="testimonials-stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>125K+</h3>
+                        <p>Patients Served</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>350+</h3>
+                        <p>Doctors Onboard</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>12 min</h3>
+                        <p>Avg. Wait Time</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>4.8★</h3>
+                        <p>Patient Rating</p>
+                    </div>
+                </div>
+
+                <div class="testimonials">
+                    <h2>What Our Patients Say</h2>
+                    
+                    <!-- Testimonials Slider -->
+                    <div class="testimonials-slider-wrapper">
+                        <div class="testimonials-slider" id="testimonialSlider">
+                            <!-- Review 1 -->
+                            <div class="testimonial-card slider-card">
+                                <div class="review-header">
+                                    <div class="patient-avatar">AH</div>
+                                    <div class="patient-info">
+                                        <h4>Amina Hassan</h4>
+                                        <p>Dhaka, Bangladesh</p>
+                                    </div>
+                                </div>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="review-text">"SMARTMEDI made booking an appointment so easy. The doctor was professional and the video consultation worked seamlessly!"</p>
+                                <div class="review-meta">Verified Patient • Appointment • 2 weeks ago</div>
+                            </div>
+
+                            <!-- Review 2 -->
+                            <div class="testimonial-card slider-card">
+                                <div class="review-header">
+                                    <div class="patient-avatar">RK</div>
+                                    <div class="patient-info">
+                                        <h4>Ravi Kapoor</h4>
+                                        <p>Mumbai, India</p>
+                                    </div>
+                                </div>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="review-text">"Finally, a healthcare platform that feels modern and trustworthy. I love how my records are organized and accessible."</p>
+                                <div class="review-meta">Verified Patient • Video Consultation • 1 week ago</div>
+                            </div>
+
+                            <!-- Review 3 -->
+                            <div class="testimonial-card slider-card">
+                                <div class="review-header">
+                                    <div class="patient-avatar">NG</div>
+                                    <div class="patient-info">
+                                        <h4>Nisha Gupta</h4>
+                                        <p>Delhi, India</p>
+                                    </div>
+                                </div>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <p class="review-text">"Great service! The only wish I have is more doctors available on weekends. Overall, highly recommend."</p>
+                                <div class="review-meta">Verified Patient • Emergency Care • 3 days ago</div>
+                            </div>
+
+                            <!-- Review 4 -->
+                            <div class="testimonial-card slider-card">
+                                <div class="review-header">
+                                    <div class="patient-avatar">FA</div>
+                                    <div class="patient-info">
+                                        <h4>Fatima Ahmed</h4>
+                                        <p>Karachi, Pakistan</p>
+                                    </div>
+                                </div>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="review-text">"Excellent experience from start to finish. The prescription management system is incredibly convenient and secure."</p>
+                                <div class="review-meta">Verified Patient • Prescription • 5 days ago</div>
+                            </div>
+
+                            <!-- Review 5 -->
+                            <div class="testimonial-card slider-card">
+                                <div class="review-header">
+                                    <div class="patient-avatar">SM</div>
+                                    <div class="patient-info">
+                                        <h4>Suresh Menon</h4>
+                                        <p>Bangalore, India</p>
+                                    </div>
+                                </div>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="review-text">"Best healthcare platform I've used. Quick appointments, qualified doctors, and excellent customer support!"</p>
+                                <div class="review-meta">Verified Patient • Video Consultation • 1 week ago</div>
+                            </div>
+
+                            <!-- Review 6 -->
+                            <div class="testimonial-card slider-card">
+                                <div class="review-header">
+                                    <div class="patient-avatar">SA</div>
+                                    <div class="patient-info">
+                                        <h4>Sara Ahmed</h4>
+                                        <p>Dubai, UAE</p>
+                                    </div>
+                                </div>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <p class="review-text">"Very user-friendly app. The emergency feature gave me peace of mind, and support team is responsive."</p>
+                                <div class="review-meta">Verified Patient • Emergency Care • 10 days ago</div>
+                            </div>
+
+                            <!-- Review 7 -->
+                            <div class="testimonial-card slider-card">
+                                <div class="review-header">
+                                    <div class="patient-avatar">PR</div>
+                                    <div class="patient-info">
+                                        <h4>Priya Rajesh</h4>
+                                        <p>Bangalore, India</p>
+                                    </div>
+                                </div>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="review-text">"My whole family uses SMARTMEDI now. The prescription downloads and medical records are so organized!"</p>
+                                <div class="review-meta">Verified Patient • Multiple Services • 2 weeks ago</div>
+                            </div>
+
+                            <!-- Review 8 -->
+                            <div class="testimonial-card slider-card">
+                                <div class="review-header">
+                                    <div class="patient-avatar">AK</div>
+                                    <div class="patient-info">
+                                        <h4>Ahmed Khan</h4>
+                                        <p>Lahore, Pakistan</p>
+                                    </div>
+                                </div>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="review-text">"Affordable healthcare at your fingertips. No waiting in clinics, just instant access to doctors. Highly satisfied!"</p>
+                                <div class="review-meta">Verified Patient • Appointment • 1 week ago</div>
+                            </div>
+
+                            <!-- Review 9 -->
+                            <div class="testimonial-card slider-card">
+                                <div class="review-header">
+                                    <div class="patient-avatar">MJ</div>
+                                    <div class="patient-info">
+                                        <h4>Maria Johnson</h4>
+                                        <p>London, UK</p>
+                                    </div>
+                                </div>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <p class="review-text">"Great service across time zones. Doctors are knowledgeable and the video quality is excellent."</p>
+                                <div class="review-meta">Verified Patient • Video Consultation • 3 days ago</div>
+                            </div>
+
+                            <!-- Review 10 -->
+                            <div class="testimonial-card slider-card">
+                                <div class="review-header">
+                                    <div class="patient-avatar">VK</div>
+                                    <div class="patient-info">
+                                        <h4>Vikram Kumar</h4>
+                                        <p>Chennai, India</p>
+                                    </div>
+                                </div>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="review-text">"SMARTMEDI transformed how I manage my health. Easy bookings, quality doctors, and secure records. Perfect!"</p>
+                                <div class="review-meta">Verified Patient • Appointment • 4 days ago</div>
+                            </div>
+                        </div>
+
+                        <!-- Slider Controls -->
+                        <div class="slider-controls">
+                            <button class="slider-btn prev-btn" onclick="scrollTestimonials(-1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="slider-btn next-btn" onclick="scrollTestimonials(1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <!-- Slider Indicators -->
+                        <div class="slider-indicators" id="sliderIndicators"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources / Blog Preview -->
+        <section class="resources">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Health Resources</h2>
+                    <p>Expert articles and health tips</p>
+                </div>
+
+                <div class="resources-grid">
+                    <article class="resource-card">
+                        <div class="resource-image">
+                            <div class="placeholder-image small">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                        </div>
+                        <div class="resource-content">
+                            <span class="resource-tag">Heart Health</span>
+                            <h3>Understanding Heart Disease Risk Factors</h3>
+                            <p>Learn about the key risk factors for heart disease and how to manage them.</p>
+                            <div class="resource-meta">
+                                <span><i class="fas fa-user"></i> Dr. Ali Khan</span>
+                                <span><i class="fas fa-clock"></i> 5 min read</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="resource-card">
+                        <div class="resource-image">
+                            <div class="placeholder-image small">
+                                <i class="fas fa-baby"></i>
+                            </div>
+                        </div>
+                        <div class="resource-content">
+                            <span class="resource-tag">Parenting</span>
+                            <h3>Essential Vaccinations for Children</h3>
+                            <p>Complete guide to childhood vaccinations and immunization schedules.</p>
+                            <div class="resource-meta">
+                                <span><i class="fas fa-user"></i> Dr. Meera Gupta</span>
+                                <span><i class="fas fa-clock"></i> 8 min read</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="resource-card">
+                        <div class="resource-image">
+                            <div class="placeholder-image small">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                        </div>
+                        <div class="resource-content">
+                            <span class="resource-tag">Wellness</span>
+                            <h3>Creating Your Perfect Fitness Routine</h3>
+                            <p>Personalized tips for building a sustainable fitness habit.</p>
+                            <div class="resource-meta">
+                                <span><i class="fas fa-user"></i> Health Team</span>
+                                <span><i class="fas fa-clock"></i> 6 min read</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Take Control of Your Health?</h2>
+                    <p>Join thousands of patients who trust SMARTMEDI for their healthcare needs.</p>
+                    <div class="cta-buttons">
+                        <a href="pages/Patient.html" class="btn btn-primary btn-lg">Get Started</a>
+                        <a href="pages/contact.html" class="btn btn-outline btn-lg">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About SMARTMEDI</h4>
+                    <p>Leading healthcare management platform providing quality medical services accessible to everyone.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="pages/about.html">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="pages/doctors.html">Doctors</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Complaints</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><strong>Address:</strong> 123 Health Street, Basundhara R/A</p>
+                    <p><strong>Phone:</strong> <a href="tel:+8801780358209">+8801780358209</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@smartmedi.com">info@smartmedi.com</a></p>
+                    <p><strong>Hours:</strong> Mon-Fri 9AM-6PM | Sat 10AM-4PM</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 SMARTMEDI. All rights reserved. | Built with care for your health.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="About SMARTMEDI - Learn about our mission, team, and commitment to healthcare excellence.">
+    <title>About Us - SMARTMEDI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, #E8F4FF 0%, #DFF3FB 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            color: #6C757D;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .mission-vision-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(20, 30, 50, 0.06);
+        }
+
+        .mission-vision-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            color: #0D6EFD;
+        }
+
+        .mission-vision-card p {
+            color: #6C757D;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 6px 18px rgba(20, 30, 50, 0.06);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(20, 30, 50, 0.1);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: #0D6EFD;
+            margin-bottom: 16px;
+        }
+
+        .value-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .value-card p {
+            color: #6C757D;
+            font-size: 0.9rem;
+        }
+
+        .team {
+            background: white;
+            padding: 60px 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .team-member {
+            background: #F6FAFE;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px);
+        }
+
+        .team-avatar {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #4A90E2, #17A2B8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .team-info {
+            padding: 24px;
+        }
+
+        .team-info h4 {
+            margin-bottom: 8px;
+        }
+
+        .team-info p {
+            color: #0D6EFD;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .team-info span {
+            display: block;
+            color: #6C757D;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 95px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #0D6EFD;
+        }
+
+        .timeline-year {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0D6EFD;
+            position: relative;
+        }
+
+        .timeline-year::before {
+            content: '';
+            position: absolute;
+            left: -55px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: #0D6EFD;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px #0D6EFD;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(20, 30, 50, 0.06);
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            color: #6C757D;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(20, 30, 50, 0.06);
+        }
+
+        .highlight-item {
+            text-align: center;
+        }
+
+        .highlight-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0D6EFD;
+            margin-bottom: 8px;
+        }
+
+        .highlight-label {
+            color: #6C757D;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+
+            .values {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item::before {
+                left: -10px;
+            }
+
+            .timeline-year::before {
+                left: -30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .values {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-brand">
+                    <i class="fas fa-heartbeat"></i>
+                    <span class="brand-name">SMARTMEDI</span>
+                </div>
+
+                <button class="navbar-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="navbar-menu" id="navMenu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link active">About</a></li>
+                    <li><a href="../index.html#services" class="nav-link">Services</a></li>
+                    <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="navbar-actions">
+                    <a href="tel:+18001234567" class="emergency-btn" title="Emergency Hotline">
+                        <i class="fas fa-phone"></i>
+                        <span class="hidden-mobile">+8801780358209</span>
+                    </a>
+                    <a href="login.html">
+                        <button class="btn btn-primary-sm" id="loginBtn">Login</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <section class="about-hero">
+            <div class="container">
+                <h1>About SMARTMEDI</h1>
+                <p>Transforming healthcare through innovation, compassion, and accessibility</p>
+            </div>
+        </section>
+
+        <!-- Mission & Vision -->
+        <section>
+            <div class="container">
+                <div class="mission-vision">
+                    <div class="mission-vision-card">
+                        <h2><i class="fas fa-bullseye"></i> Our Mission</h2>
+                        <p>To make quality healthcare accessible, affordable, and convenient for everyone by leveraging
+                            technology and connecting patients with experienced medical professionals.</p>
+                    </div>
+                    <div class="mission-vision-card">
+                        <h2><i class="fas fa-eye"></i> Our Vision</h2>
+                        <p>To be the leading digital health platform that empowers individuals to take control of their
+                            health, enabling them to live longer, healthier, and more fulfilling lives.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values -->
+        <section style="background: #F6FAFE;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 8px;">Our Core Values</h2>
+                    <p style="color: #6C757D;">Principles that guide everything we do</p>
+                </div>
+                <div class="values">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Compassion</h3>
+                        <p>We care deeply about the well-being of every patient and treat them with empathy.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Trust</h3>
+                        <p>We prioritize patient data security and maintain the highest standards of confidentiality.
+                        </p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Innovation</h3>
+                        <p>We embrace technology to improve healthcare delivery and patient experience.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Collaboration</h3>
+                        <p>We work together with doctors, patients, and partners to achieve better health outcomes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Highlights -->
+        <section>
+            <div class="container">
+                <div class="highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-number">125K+</div>
+                        <div class="highlight-label">Patients Served</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-number">350+</div>
+                        <div class="highlight-label">Doctors Onboard</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-number">95%</div>
+                        <div class="highlight-label">Patient Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section style="background: #F6FAFE;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 8px;">Our Journey</h2>
+                    <p style="color: #6C757D;">From startup to trusted healthcare platform</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2019</div>
+                        <div class="timeline-content">
+                            <h3>SMARTMEDI Founded</h3>
+                            <p>We started with a vision to digitize healthcare and make doctor consultations accessible
+                                to everyone in remote areas.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-content">
+                            <h3>First 10K Patients</h3>
+                            <p>Launched telemedicine services and crossed 10,000 successful consultations milestone.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2021</div>
+                        <div class="timeline-content">
+                            <h3>Expanded Services</h3>
+                            <p>Added lab diagnostics, e-prescription, and medical records management features.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022</div>
+                        <div class="timeline-content">
+                            <h3>Multi-Language Support</h3>
+                            <p>Expanded platform to support Bengali, Hindi, and multiple regional languages.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-content">
+                            <h3>Insurance Partnerships</h3>
+                            <p>Partnered with major insurance providers for cashless healthcare services.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">
+                            <h3>AI-Powered Features</h3>
+                            <p>Integrated AI for symptom analysis and personalized health recommendations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team -->
+        <section class="team">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 8px;">Leadership Team</h2>
+                    <p style="color: #6C757D;">Experienced professionals dedicated to healthcare excellence</p>
+                </div>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="team-info">
+                            <h4>Mahmudul Hasan</h4>
+                            <p>Founder & CEO</p>
+                            <span>Medical Doctor with 20+ years experience</span>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar" style="background: linear-gradient(135deg, #FF6B6B, #FF8E72);">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="team-info">
+                            <h4>Touhid Ara Himu</h4>
+                            <p>CTO</p>
+                            <span>Tech innovator with healthcare expertise</span>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="team-info">
+                            <h4>Ayona</h4>
+                            <p>COO</p>
+                            <span>Operations and business development expert</span>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar" style="background: linear-gradient(135deg, #FFE66D, #FFC93C);">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="team-info">
+                            <h4>Tousif Rashid</h4>
+                            <p>Head of Medical Affairs</p>
+                            <span>Clinical overseer and quality assurance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section style="background: linear-gradient(135deg, #0D6EFD, #4A90E2); color: white; text-align: center;">
+            <div class="container">
+                <h2 style="font-size: 2.2rem; margin-bottom: 16px;">Join Thousands of Happy Patients</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 24px; opacity: 0.95;">Experience quality healthcare at your
+                    fingertips</p>
+                <a href="../index.html#appointment" class="btn"
+                    style="background: white; color: #0D6EFD; font-weight: 600; padding: 12px 32px;">Book Your
+                    Appointment</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About SMARTMEDI</h4>
+                    <p>Leading healthcare management platform providing quality medical services accessible to everyone.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Complaints</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><strong>Address:</strong> 123 Health Street, Medical City, MC 12345</p>
+                    <p><strong>Phone:</strong> <a href="tel:+18001234567">+1-800-123-4567</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@smartmedi.com">info@smartmedi.com</a></p>
+                    <p><strong>Hours:</strong> Mon-Fri 9AM-6PM | Sat 10AM-4PM</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 SMARTMEDI. All rights reserved. | Built with care for your health.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

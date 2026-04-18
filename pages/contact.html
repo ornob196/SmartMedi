@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact SMARTMEDI - Get in touch with us for support, feedback, or partnerships.">
+    <title>Contact Us - SMARTMEDI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .contact-hero {
+            background: linear-gradient(135deg, #E8F4FF 0%, #DFF3FB 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .contact-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .contact-hero p {
+            font-size: 1.2rem;
+            color: #6C757D;
+        }
+
+        .contact-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(20, 30, 50, 0.06);
+            display: flex;
+            gap: 20px;
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 12px 32px rgba(20, 30, 50, 0.1);
+        }
+
+        .info-icon {
+            font-size: 1.8rem;
+            color: #0D6EFD;
+            width: 50px;
+            height: 50px;
+            background: rgba(13, 110, 253, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .info-content h3 {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .info-content p {
+            color: #6C757D;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .info-content a {
+            color: #0D6EFD;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .info-content a:hover {
+            color: #4A90E2;
+        }
+
+        .contact-form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(20, 30, 50, 0.06);
+        }
+
+        .contact-form-container h2 {
+            margin-bottom: 24px;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #222;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #E0E3E8;
+            border-radius: 8px;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0D6EFD;
+            box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #0D6EFD, #4A90E2);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(13, 110, 253, 0.3);
+        }
+
+        .branches {
+            margin-top: 60px;
+        }
+
+        .branches h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
+
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .branch-card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(20, 30, 50, 0.06);
+            transition: var(--transition);
+        }
+
+        .branch-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(20, 30, 50, 0.1);
+        }
+
+        .branch-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #0D6EFD;
+        }
+
+        .branch-info {
+            font-size: 0.9rem;
+            color: #6C757D;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .branch-info strong {
+            display: block;
+            color: #222;
+            margin-top: 12px;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .faq {
+            background: #F6FAFE;
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 6px 18px rgba(20, 30, 50, 0.06);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .faq-icon {
+            color: #0D6EFD;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 12px;
+            color: #6C757D;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        @media (max-width: 1024px) {
+            .contact-main {
+                grid-template-columns: 1fr;
+            }
+
+            .branches-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero h1 {
+                font-size: 2rem;
+            }
+
+            .branches-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-main {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-brand">
+                    <i class="fas fa-heartbeat"></i>
+                    <span class="brand-name">SMARTMEDI</span>
+                </div>
+                
+                <button class="navbar-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="navbar-menu" id="navMenu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="../index.html#services" class="nav-link">Services</a></li>
+                    <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+
+                <div class="navbar-actions">
+                    <a href="tel:+18001234567" class="emergency-btn" title="Emergency Hotline">
+                        <i class="fas fa-phone"></i>
+                        <span class="hidden-mobile">+8801780358209</span>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <section class="contact-hero">
+            <div class="container">
+                <h1>Get In Touch</h1>
+                <p>We're here to help. Contact us for any questions or support.</p>
+            </div>
+        </section>
+
+        <!-- Contact Main -->
+        <section>
+            <div class="container">
+                <div class="contact-main">
+                    <div class="contact-info">
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Address</h3>
+                                <p>123 Health Street</p>
+                                <p>Medical City, Basundhara R/A</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Phone</h3>
+                                <p>Emergency: <a href="tel:+18001234567">+8801722935208</a></p>
+                                <p>General: <a href="tel:+1234567890">+8801780358209</a></p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Email</h3>
+                                <p>Support: <a href="mailto:mahmudul7534@gmail.com">support@smartmedi.com</a></p>
+                                <p>Business: <a href="mailto:mahmudul7534@gmail.com">business@smartmedi.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Working Hours</h3>
+                                <p><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM</p>
+                                <p><strong>Saturday:</strong> 10:00 AM - 4:00 PM</p>
+                                <p><strong>Sunday:</strong> Closed</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <h2>Send us a Message</h2>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="appointment">Appointment Issue</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="complaint">Complaint</option>
+                                    <option value="partnership">Partnership Inquiry</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" required placeholder="Please describe your message in detail..."></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Branches -->
+        <section class="branches">
+            <div class="container">
+                <h2>Our Centers</h2>
+                <div class="branches-grid">
+                    <div class="branch-card">
+                        <div class="branch-name">Downtown Medical Center</div>
+                        <div class="branch-info">
+                            <strong>Address:</strong>
+                            123 Health Street, Basundhara R/A
+                        </div>
+                        <div class="branch-info">
+                            <strong>Phone:</strong>
+                            <a href="tel:+1234567890">+8801780358209</a>
+                        </div>
+                        <div class="branch-info">
+                            <strong>Hours:</strong>
+                            Mon-Fri: 8AM-8PM | Sat: 9AM-5PM | Sun: 10AM-3PM
+                        </div>
+                    </div>
+
+                    <div class="branch-card">
+                        <div class="branch-name">North Wing Hospital</div>
+                        <div class="branch-info">
+                            <strong>Address:</strong>
+                            456 North Avenue, Banani R/A
+                        </div>
+                        <div class="branch-info">
+                            <strong>Phone:</strong>
+                            <a href="tel:+1987654321">+8801722935208</a>
+                        </div>
+                        <div class="branch-info">
+                            <strong>Hours:</strong>
+                            Mon-Fri: 9AM-6PM | Sat: 10AM-4PM | Sun: Closed
+                        </div>
+                    </div>
+
+                    <div class="branch-card">
+                        <div class="branch-name">East Side Clinic</div>
+                        <div class="branch-info">
+                            <strong>Address:</strong>
+                            789 East Road, Gulsan R/A
+                        </div>
+                        <div class="branch-info">
+                            <strong>Phone:</strong>
+                            <a href="tel:+1555666777">+8801780358209</a>
+                        </div>
+                        <div class="branch-info">
+                            <strong>Hours:</strong>
+                            Mon-Fri: 9AM-7PM | Sat: 10AM-5PM | Sun: 11AM-2PM
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="font-size: 2.2rem; margin-bottom: 8px;">Frequently Asked Questions</h2>
+                    <p style="color: #6C757D;">Find answers to common questions about SMARTMEDI</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How do I book an appointment?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            You can book an appointment by visiting our website, selecting a doctor, choosing a date and time, and filling in your details. You'll receive a confirmation via email and SMS.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What payment methods do you accept?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            We accept all major credit cards, debit cards, UPI, net banking, and digital wallets. We also support cashless payment through insurance partners.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I cancel or reschedule my appointment?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Yes, you can cancel or reschedule your appointment up to 24 hours before the scheduled time from your patient portal or by contacting our support team.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Is my personal information secure?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Yes, we use industry-leading encryption and security measures to protect your personal and medical information. All data is stored securely and complies with healthcare privacy regulations.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How does telemedicine consultation work?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            For video consultations, you'll receive a secure link before your appointment. Simply click the link at the scheduled time to connect with your doctor via video call. Ensure you have a stable internet connection and webcam.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I download my medical records?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Yes, you can download your medical records, prescriptions, and lab reports in PDF format from your patient portal. These records are securely stored and accessible anytime.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section style="background: linear-gradient(135deg, #0D6EFD, #4A90E2); color: white; text-align: center;">
+            <div class="container">
+                <h2 style="font-size: 2.2rem; margin-bottom: 16px;">Still Have Questions?</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 24px; opacity: 0.95;">Our support team is available 24/7 to assist you</p>
+                <a href="tel:+18001234567" class="btn" style="background: white; color: #0D6EFD; font-weight: 600; padding: 12px 32px;">Call Emergency Hotline</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About SMARTMEDI</h4>
+                    <p>Leading healthcare management platform providing quality medical services accessible to everyone.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Complaints</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><strong>Address:</strong> 123 Health Street, Basundhara R/A</p>
+                    <p><strong>Phone:</strong> <a href="tel:+18001234567">+8801780358209</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@smartmedi.com">info@smartmedi.com</a></p>
+                    <p><strong>Hours:</strong> Mon-Fri 9AM-6PM | Sat 10AM-4PM</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 SMARTMEDI. All rights reserved. | Built with care for your health.</p>
+            </div>
+        </div>
+    </footer>
+
+   
+
+    <script src="../js/main.js"></script>
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    if (i !== item) i.classList.remove('active');
+                });
+                item.classList.toggle('active');
+            });
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    subject: document.getElementById('subject').value,
+                    message: document.getElementById('message').value
+                };
+                console.log('Contact Form Data:', formData);
+                showNotification('Thank you for your message! We will get back to you soon.', 'success');
+                contactForm.reset();
+            });
+        }
+
+        function showNotification(message, type = 'info') {
+            // Remove existing notification
+            const existing = document.querySelector('.notification');
+            if (existing) {
+                existing.remove();
+            }
+
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+                <button class="notification-close" onclick="this.parentElement.remove()">&times;</button>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
