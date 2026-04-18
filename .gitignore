@@ -1,0 +1,21 @@
+# ---------- OS junk ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------- Node / frontend ----------
+node_modules/
+dist/
+build/
+
+# ---------- Logs ----------
+*.log
+
+# ---------- Editor (VS Code etc.) ----------
+.vscode/
+.idea/
+
+# ---------- Temp files ----------
+*.tmp
+*.swp
+*.bak
