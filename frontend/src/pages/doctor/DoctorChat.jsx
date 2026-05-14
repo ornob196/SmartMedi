@@ -33,10 +33,21 @@ export default function DoctorChat() {
   const messagesEndRef = useRef(null)
   const typingTimeoutRef = useRef(null)
 
-  useEffect(() => {
-    socketRef.current = io('http://localhost:5001', { transports: ['websocket'] })
-    return () => { if (socketRef.current) socketRef.current.disconnect() }
-  }, [])
+
+useEffect(() => {
+  socketRef.current = io(
+    import.meta.env.VITE_API_URL || 'http://localhost:5001',
+    {
+      transports: ['websocket', 'polling'],
+      withCredentials: true,
+    }
+  );
+
+  return () => {
+    if (socketRef.current) socketRef.current.disconnect();
+  };
+}, []);
+
 
   useEffect(() => {
     // Get unique patients from appointments

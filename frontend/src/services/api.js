@@ -7,9 +7,9 @@ import axios from 'axios'
 
 // ── Create Axios instance ──────────────────────────────────────────────────────
 const api = axios.create({
-  baseURL: '/api',                            // Proxied via vite.config.js → localhost:5001
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5001',
   headers: { 'Content-Type': 'application/json' },
-  timeout: 30000,                             // 30s timeout
+  timeout: 30000,
 })
 
 // ── Request interceptor: attach JWT token to every request ────────────────────

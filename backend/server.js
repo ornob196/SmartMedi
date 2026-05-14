@@ -47,12 +47,19 @@ const app = express();
 const server = http.createServer(app); // HTTP server for Socket.IO
 
 // ─── Socket.IO Setup (Real-time Chat) ─────────────────────────────────────────
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  process.env.FRONTEND_URL,
+].filter(Boolean);
+
 const io = new Server(server, {
   cors: {
-    origin: ['http://localhost:5173', 'http://localhost:3000'],
+    origin: allowedOrigins,
     credentials: true,
   },
 });
+``
 
 // ─── Socket.IO Event Handlers ─────────────────────────────────────────────────
 io.on('connection', (socket) => {
@@ -97,10 +104,18 @@ io.on('connection', (socket) => {
 });
 
 // ─── Express Middleware ────────────────────────────────────────────────────────
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  process.env.FRONTEND_URL,
+].filter(Boolean);
+
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000'],
+  origin: allowedOrigins,
   credentials: true,
 }));
+
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
